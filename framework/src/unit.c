@@ -59,7 +59,7 @@ void	ut_puts_result(t_unit_test **testlist, int ok, int size)
 	ut_putnbr_fd(ok, 1);
 	ut_putstr_fd("/", 1);
 	ut_putnbr_fd(size, 1);
-	ut_putstr_fd("/n", 1);
+	ut_putstr_fd("\n", 1);
 }
 
 /*
@@ -73,19 +73,18 @@ int		launch_tests(t_unit_test **testlist)
 	t_unit_test	*tmp;
 
 	tmp = *testlist;
+	ok = 0;
+	size = 0;
 	int cnt=0;
 	while (tmp)
 	{
-		printf("cnt:%d, tmp:%p, tmp->next:%p\n", cnt++, tmp, tmp->next);
 		if (!(tmp->result = (ut_run_test(tmp))))
 			ok++;
-		printf("result:%d\n", tmp->result);
 		tmp = tmp->next;
 		size++;
 	}
-	printf("cnt:%d, tmp:%p\n", cnt++, tmp);
 	ut_puts_result(testlist, ok, size);
-	ut_del_test(testlist);
+	ut_lstclear(testlist);
 	return ((ok == size) ? 0 : -1);
 }
 
@@ -97,7 +96,7 @@ void	ut_load_test(t_unit_test **testlist, char *title, int (*ut_f)(void))
 {
 	t_unit_test	*new;
 
-	new = ut_lstnew(title);
+	new = ut_lstnew(title, ut_f);
 	ut_lstadd_back(testlist, new);
 	return ;
 }

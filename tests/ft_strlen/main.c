@@ -7,6 +7,5 @@ int main()
 
 	err = 0;
 	err |= strlen_launcher();
-	ut_puts("fin\n");
 	return (err);
 }

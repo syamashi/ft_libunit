@@ -28,6 +28,8 @@ $(NAME) : clean
 
 clean :
 	rm -f $(NAME)
+	rm -f libunit.a
+	rm -f ../framework/libunit.a
 #clean :
 #	make clean -C $(LIBDIR)
 #	rm -f $(OBJS)

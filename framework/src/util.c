@@ -48,6 +48,21 @@ int ut_puts_error(char *s)
 	return (1);
 }
 
+void	ut_lstclear(t_unit_test **lst)
+{
+	t_unit_test *tmp;
+
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		free((*lst)->title);
+		(*lst)->title = NULL;
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = NULL;
+}
+
 t_unit_test	*ut_lstlast(t_unit_test *lst)
 {
 	if (!lst)
@@ -72,7 +87,7 @@ void	ut_lstadd_back(t_unit_test **lst, t_unit_test *new)
 	endlst->next = new;
 }
 
-t_unit_test	*ut_lstnew(char *title)
+t_unit_test	*ut_lstnew(char *title, int (*ut_f)(void))
 {
 	t_unit_test	*list;
 
@@ -82,7 +97,7 @@ t_unit_test	*ut_lstnew(char *title)
 	if (!list->title)
 		exit(ut_puts_error("malloc failed\n"));
 	list->result = 0;
-	list->ut_f = 0;
+	list->ut_f = ut_f;
 	list->next = NULL;
 	return (list);
 }
@@ -115,6 +130,13 @@ void	ut_putchar_fd(char c, int fd)
 
 int		ut_memcpy(void *dest, const void *src, size_t n)
 {
-	ut_memcpy(dest, src, n);
-	return (n);
+	char *d = dest;
+	const char *s = src;
+	size_t	ret;
+
+	ret = n;
+	while (n-- > 0)
+		*d++ = *s++;
+	*d = 0;
+	return (ret);
 }
