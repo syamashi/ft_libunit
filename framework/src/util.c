@@ -137,6 +137,5 @@ int		ut_memcpy(void *dest, const void *src, size_t n)
 	ret = n;
 	while (n-- > 0)
 		*d++ = *s++;
-	*d = 0;
 	return (ret);
 }
