@@ -21,13 +21,16 @@ $(OBJDIR) :
 $(OBJDIR)%.o : $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(NAME) : $(OBJS)
-	make -C $(LIBDIR)
-	$(CC) $(CFLAGS) -I./includes -L $(LIBDIR) $(LIBUNIT_DIR) -o $@ $^ -lft
+$(NAME) : clean
+	gcc -c ../framework/src/*.c
+	ar rc libunit.a ./*.o
+	gcc ft_strlen/*.c ft_strlen/*.h ./*.a -o $(NAME)
 
 clean :
-	make clean -C $(LIBDIR)
-	rm -f $(OBJS)
+	rm -f $(NAME)
+#clean :
+#	make clean -C $(LIBDIR)
+#	rm -f $(OBJS)
 
 fclean : clean
 	make fclean -C $(LIBDIR)

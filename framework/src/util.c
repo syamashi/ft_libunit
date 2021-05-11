@@ -112,3 +112,9 @@ void	ut_putchar_fd(char c, int fd)
 		return ;
 	write(fd, &c, 1);
 }
+
+int		ut_memcpy(void *dest, const void *src, size_t n)
+{
+	ut_memcpy(dest, src, n);
+	return (n);
+}

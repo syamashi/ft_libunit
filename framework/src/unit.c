@@ -1,14 +1,5 @@
 #include "../includes/libunit.h"
 
-/*
-** set textlist->result
-*/
-
-int	ut_child(t_unit_test *testlist)
-{
-	return (testlist->ut_f());
-}
-
 int	ut_run_test(t_unit_test *testlist)
 {
 	pid_t	pid;
@@ -16,7 +7,7 @@ int	ut_run_test(t_unit_test *testlist)
 	if ((pid = fork()) < 0)
 		return (42); //fork error
 	if (pid == 0)// child
-		exit(ut_child(testlist)); // success:0, fail:-1, other:SIG
+		exit(testlist->ut_f()); // success:0, fail:-1, other:SIG
 	// parent
 	wait(&pid);
 	if (WIFEXITED(pid))
@@ -29,12 +20,6 @@ int	ut_run_test(t_unit_test *testlist)
 void	ut_del_test(t_unit_test **testlist)
 {
 	return ;
-}
-
-int		ut_memcpy(void *dest, const void *src, size_t n)
-{
-	ut_memcpy(dest, src, n);
-	return (n);
 }
 
 int		ut_set_result(void *dest, int result)
@@ -53,7 +38,6 @@ int		ut_set_result(void *dest, int result)
 		return (ut_memcpy(dest, "FORK FAILED", 11));
 	return (ut_memcpy(dest, "UNKNOWN", 7));
 }
-
 
 void	ut_puts_result(t_unit_test **testlist, int ok, int size)
 {
@@ -92,13 +76,14 @@ int		launch_tests(t_unit_test **testlist)
 	int cnt=0;
 	while (tmp)
 	{
-		printf("cnt:%d, tmp:%s\n", cnt++, tmp->title);
-	    fflush(stdout);
+		printf("cnt:%d, tmp:%p, tmp->next:%p\n", cnt++, tmp, tmp->next);
 		if (!(tmp->result = (ut_run_test(tmp))))
 			ok++;
+		printf("result:%d\n", tmp->result);
 		tmp = tmp->next;
 		size++;
 	}
+	printf("cnt:%d, tmp:%p\n", cnt++, tmp);
 	ut_puts_result(testlist, ok, size);
 	ut_del_test(testlist);
 	return ((ok == size) ? 0 : -1);

@@ -4,6 +4,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <signal.h>
+# include <stdio.h>
 # include <sys/wait.h>
 
 typedef struct	s_unit_test{
@@ -41,5 +42,5 @@ t_unit_test	*ut_lstnew(char *title);
 void	ut_putnbr_fd(int n, int fd);
 void	ut_putstr_fd(char *s, int fd);
 void	ut_putchar_fd(char c, int fd);
-
+int		ut_memcpy(void *dest, const void *src, size_t n);
 #endif
