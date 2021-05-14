@@ -1,5 +1,11 @@
 #include "../includes/libunit.h"
 
+int	ut_child(t_unit_test *testlist)
+{
+	alarm(3);
+	return (testlist->ut_f());
+}
+
 int	ut_run_test(t_unit_test *testlist)
 {
 	pid_t	pid;
@@ -7,7 +13,7 @@ int	ut_run_test(t_unit_test *testlist)
 	if ((pid = fork()) < 0)
 		return (42); //fork error
 	if (pid == 0)// child
-		exit(testlist->ut_f()); // success:0, fail:-1, other:SIG
+		exit(ut_child(testlist)); // success:0, fail:-1, other:SIG
 	// parent
 	wait(&pid);
 	if (WIFEXITED(pid))
@@ -32,8 +38,8 @@ int		ut_set_result(void *dest, int result)
 		return (ut_memcpy(dest, "BUS", 3));
 	if (result == 11)
 		return (ut_memcpy(dest, "SEGV", 4));
-//	if (result == 14)
-//		return (ut_memcpy(dest, "TIMEOUT", 7));
+	if (result == 14)
+		return (ut_memcpy(dest, "TIMEOUT", 7));
 	if (result == 42)
 		return (ut_memcpy(dest, "FORK FAILED", 11));
 	return (ut_memcpy(dest, "UNKNOWN", 7));

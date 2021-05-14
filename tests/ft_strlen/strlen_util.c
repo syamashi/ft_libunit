@@ -11,3 +11,10 @@ size_t	ft_strlen(const char *s)
 		n++;
 	return (n);
 }
+
+int		ft_loop(void)
+{
+	while (1)
+		;
+	return (0);
+}

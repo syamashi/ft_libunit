@@ -19,6 +19,7 @@ typedef struct	s_unit_test{
 ** units
 */
 
+int		ut_child(t_unit_test *testlist);
 int		ut_run_test(t_unit_test *testlist);
 void	ut_del_test(t_unit_test **testlist);
 int		ut_memcpy(void *dest, const void *src, size_t n);

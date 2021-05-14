@@ -1,8 +1,8 @@
 #include "strlen_test.h"
 
-int strlen_null_test(void)
+int strlen_tle_test(void)
 {
-    if (strlen(NULL) == 0)
+    if (ft_loop())
         return (0);
     else
         return (-1);
