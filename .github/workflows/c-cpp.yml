@@ -16,4 +16,4 @@ jobs:
     - name: configure
       run: echo "Hello world"
     - name: make
-      run: cd /tests && make && ./test
+      run: cd ft_libunit/tests && make && ./test
