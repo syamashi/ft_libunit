@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: configure
+    - name: hello_world
       run: echo "Hello world"
     - name: make
-      run: pwd && cd ./tests && make && ./test
+      run: pwd && cd ./tests && make fclean && make test
