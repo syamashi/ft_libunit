@@ -27,8 +27,7 @@ typedef struct	s_unit_test{
 int		ut_child(t_unit_test *testlist);
 int		ut_run_test(t_unit_test *testlist);
 void	ut_del_test(t_unit_test **testlist);
-int		ut_memcpy(void *dest, const void *src, size_t n);
-int		ut_set_result(void *dest, int result);
+int		ut_memresult(void *dest, int result);
 void	ut_puts_result(t_unit_test *lst);
 void	ut_puts_final_result(int ok, int size);
 int		launch_tests(t_unit_test **testlist);
@@ -50,5 +49,5 @@ t_unit_test	*ut_lstnew(char *title, int (*ut_f)(void));
 void	ut_putnbr_fd(int n, int fd);
 void	ut_putstr_fd(char *s, int fd);
 void	ut_putchar_fd(char c, int fd);
-int		ut_memcpy(void *dest, const void *src, size_t n);
+int		ut_memcpy(void *dest, const void *src);
 #endif

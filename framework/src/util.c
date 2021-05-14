@@ -39,7 +39,7 @@ void	ut_putstr_fd(char *s, int fd)
 
 void ut_puts(char *s)
 {
-	
+
 	ut_putstr_fd(s, 1);
 }
 
@@ -129,13 +129,17 @@ void	ut_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-int		ut_memcpy(void *dest, const void *src, size_t n)
+int		ut_memcpy(void *dest, const void *src)
 {
-	char *d = dest;
-	const char *s = src;
+	char *d;
+	const char *s;
 	size_t	ret;
+	size_t	n;
 
-	ret = n;
+	d = dest;
+	s = src;
+	ret = ut_strlen(s);
+	n = ret;
 	while (n-- > 0)
 		*d++ = *s++;
 	return (ret);

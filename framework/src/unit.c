@@ -28,34 +28,46 @@ void	ut_del_test(t_unit_test **testlist)
 	return ;
 }
 
-int		ut_set_result(void *dest, int result)
+int		ut_memresult(void *dest, int result)
 {
 	if (result == 0)
-		return (ut_memcpy(dest, "OK", 2));
+		return (ut_memcpy(dest, "OK"));
 	if (result == 6)
-		return (ut_memcpy(dest, "ABRT", 4));
+		return (ut_memcpy(dest, "ABRT"));
 	if (result == 10)
-		return (ut_memcpy(dest, "BUS", 3));
+		return (ut_memcpy(dest, "BUS"));
 	if (result == 11)
-		return (ut_memcpy(dest, "SEGV", 4));
+		return (ut_memcpy(dest, "SEGV"));
 	if (result == 14)
-		return (ut_memcpy(dest, "TIMEOUT", 7));
+		return (ut_memcpy(dest, "TIMEOUT"));
 	if (result == 42)
-		return (ut_memcpy(dest, "FORK FAILED", 11));
-	return (ut_memcpy(dest, "UNKNOWN", 7));
+		return (ut_memcpy(dest, "FORK FAILED"));
+	return (ut_memcpy(dest, "UNKNOWN"));
+}
+
+int		ut_memcolor(void *dest, int result)
+{
+	if (result == -1)
+		return (ut_memcpy(dest, DEFCOLOR));
+	else if (result)
+		return (ut_memcpy(dest, RED));
+	else
+		return (ut_memcpy(dest, GREEN));
 }
 
 void	ut_puts_result(t_unit_test *lst)
 {
 	char	buf[1024];
-	int	len;
+	int		len;
 
 	len = 0;
-	len += ut_memcpy(buf + len, lst->title, ut_strlen(lst->title));
-	len += ut_memcpy(buf + len, " : ", 3);
-	len += ut_set_result(buf + len, lst->result);
-	len += ut_memcpy(buf + len, "\n\0", 2);
-	ut_puts(buf);
+	len += ut_memcpy(buf + len, lst->title);
+	len += ut_memcpy(buf + len, " : ");
+	len += ut_memcolor(buf + len, lst->result);
+	len += ut_memresult(buf + len, lst->result);
+	len += ut_memcpy(buf + len, "\n\0");
+	len += ut_memcolor(buf + len, -1);
+	ut_puts(buf); // streamも渡して、textつくる？
 }
 
 void	ut_puts_final_result(int ok, int size)

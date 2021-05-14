@@ -1,0 +1,5 @@
+=====STRLEN=====
+Basic test : [32mOK[39m
+²[þNULL test : [31mSEGV[39m
+[þtle test : [31mTIMEOUT[39m
+1/3
