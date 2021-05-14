@@ -57,18 +57,13 @@ int		ut_memcolor(void *dest, int result)
 
 void	ut_puts_result(t_unit_test *lst)
 {
-	char	buf[1024];
-	int		len;
-
-	len = 0;
-	len += ut_memcpy(buf + len, lst->title);
-	len += ut_memcpy(buf + len, " : ");
-	len += ut_memcolor(buf + len, lst->result);
-	len += ut_memresult(buf + len, lst->result);
-	len += ut_memcpy(buf + len, "\n\0");
-	len += ut_memcolor(buf + len, -1);
-	ut_puts(buf); // streamも渡して、textつくる？
+	ut_memresult(lst->buf, lst->result);
+	if (lst->result)
+		printf("%s: %s%s%s\n", lst->title, RED, lst->buf, CEND);
+	else
+		printf("%s: %s%s%s\n", lst->title, GREEN, lst->buf, CEND);
 }
+
 
 void	ut_puts_final_result(int ok, int size)
 {

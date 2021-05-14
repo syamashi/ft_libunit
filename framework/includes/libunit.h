@@ -8,13 +8,15 @@
 # include <sys/wait.h>
 
 # define CLEAR "\033[2J"
-# define RED "\033[31m"
-# define GREEN "\033[32m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
 # define DEFCOLOR "\033[39m"
+# define CEND "\033[0m"
 
 typedef struct	s_unit_test{
 	char	*title;
 	int		result; // 戻り値いれる
+	char	buf[1024];
 	int		(*ut_f)(void);
 	struct s_unit_test *next;
 }				t_unit_test;
