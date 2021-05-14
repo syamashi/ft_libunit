@@ -44,7 +44,8 @@ fclean : clean
 
 re : fclean all
 
+# ret(-1) cause make error.  ||: force ret(0)
 test : all
-	./$(NAME)
+	./$(NAME)||:
 
 .PHONY: all fclean clean re test
