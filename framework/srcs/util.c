@@ -39,8 +39,7 @@ void	ut_putstr_fd(char *s, int fd)
 
 void ut_puts(char *s)
 {
-
-	ut_putstr_fd(s, 1);
+	printf("%s", s);
 }
 
 int ut_puts_error(char *s)

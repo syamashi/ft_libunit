@@ -1,11 +1,8 @@
 NAME = libunit.a
-SRCDIR = ./src/
-SRCNAMES = $(shell echo *.c)
-SRCS = $(addprefix $(SRCDIR), $(SRCNAMES))
-OBJDIR = ./obj/
-OBJS = $(SRCNAMES:%.c=$(OBJDIR)%.o)
-
-LIBDIR = ./libft/
+SRCDIR = ./srcs/
+SRCS = $(shell cd $(SRCDIR) && echo *.c && cd ..)
+OBJDIR = ./objs/
+OBJS = $(SRCS:%.c=$(OBJDIR)%.o)
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -13,22 +10,19 @@ CFLAGS = -Wall -Werror -Wextra
 all : $(OBJDIR) $(NAME)
 
 $(OBJDIR) :
-	mkdir -p obj
+	mkdir -p objs
 
 $(OBJDIR)%.o : $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME) : $(OBJS)
-	make -C $(LIBDIR)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	ar rc $(NAME) $(OBJS)
+#	ranlib $(NAME)
 
 clean :
-	make clean -C $(LIBDIR)
 	rm -f $(OBJS)
 
 fclean : clean
-	make fclean -C $(LIBDIR)
 	rm -f $(NAME)
 
 re : fclean all

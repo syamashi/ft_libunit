@@ -23,11 +23,6 @@ int	ut_run_test(t_unit_test *testlist)
 	return (142); // unknown
 }
 
-void	ut_del_test(t_unit_test **testlist)
-{
-	return ;
-}
-
 int		ut_memresult(void *dest, int result)
 {
 	if (result == 0)
@@ -87,7 +82,6 @@ int		launch_tests(t_unit_test **testlist)
 	tmp = *testlist;
 	ok = 0;
 	size = 0;
-	int cnt=0;
 	while (tmp)
 	{
 		if (!(tmp->result = (ut_run_test(tmp))))

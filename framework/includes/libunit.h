@@ -28,7 +28,6 @@ typedef struct	s_unit_test{
 
 int		ut_child(t_unit_test *testlist);
 int		ut_run_test(t_unit_test *testlist);
-void	ut_del_test(t_unit_test **testlist);
 int		ut_memresult(void *dest, int result);
 void	ut_puts_result(t_unit_test *lst);
 void	ut_puts_final_result(int ok, int size);
