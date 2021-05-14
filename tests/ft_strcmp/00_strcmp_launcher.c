@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_strlen_basic.c                                  :+:      :+:    :+:   */
+/*   00_strcmp_launcher.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 23:32:48 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:44:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/05/14 23:39:14 by syamashi          #+#    #+#             */
+/*   Updated: 2021/05/14 23:43:57 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/testutil.h"
+#include "../../framework/includes/libunit.h"
 
-int	strlen_basic_test(void)
+int	strcmp_launcher(void)
 {
-	if (ft_strlen("") == 0)
-		return (0);
-	else
-		return (-1);
+	t_unit_test *testlist;
+
+	testlist = NULL;
+	ut_puts("STRCMP:\n");
+	ut_load_test(&testlist, "Basic test", &strcmp_basic_test);
+	return (launch_tests(&testlist));
 }

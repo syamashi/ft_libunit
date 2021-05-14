@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_strlen_basic.c                                  :+:      :+:    :+:   */
+/*   03_strlen_tle.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 23:32:48 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:44:29 by syamashi         ###   ########.fr       */
+/*   Created: 2021/05/14 23:33:00 by syamashi          #+#    #+#             */
+/*   Updated: 2021/05/14 23:45:02 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/testutil.h"
 
-int	strlen_basic_test(void)
+int	strlen_tle_test(void)
 {
-	if (ft_strlen("") == 0)
+	if (ft_loop())
 		return (0);
 	else
 		return (-1);

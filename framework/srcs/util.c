@@ -1,54 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/14 23:15:51 by syamashi          #+#    #+#             */
+/*   Updated: 2021/05/14 23:26:45 by syamashi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/libunit.h"
 
-size_t	ut_strlen(const char *s)
-{
-	size_t	n;
-
-	if (!s)
-		return (0);
-	n = 0;
-	while (*s++ != '\0')
-		n++;
-	return (n);
-}
-
-char	*ut_strdup(const char *str)
-{
-	char	*copy;
-	int		ssz;
-	int		n;
-
-	if (!str)
-		return (NULL);
-	ssz = ut_strlen(str);
-	if (!(copy = malloc(sizeof(char) * (ssz + 1))))
-		return (NULL);
-	n = 0;
-	while (*str)
-		copy[n++] = *str++;
-	copy[n] = '\0';
-	return (copy);
-}
-
-void	ut_putstr_fd(char *s, int fd)
-{
-	if (fd < 0 || !s)
-		return ;
-	write(fd, s, ut_strlen(s));
-}
-
-void ut_puts(char *s)
-{
-	printf("%s", s);
-}
-
-int ut_puts_error(char *s)
-{
-	ut_putstr_fd(s, 1);
-	return (1);
-}
-
-void	ut_lstclear(t_unit_test **lst)
+void		ut_lstclear(t_unit_test **lst)
 {
 	t_unit_test *tmp;
 
@@ -72,7 +36,7 @@ t_unit_test	*ut_lstlast(t_unit_test *lst)
 	return (lst);
 }
 
-void	ut_lstadd_back(t_unit_test **lst, t_unit_test *new)
+void		ut_lstadd_back(t_unit_test **lst, t_unit_test *new)
 {
 	t_unit_test	*endlst;
 
@@ -92,7 +56,7 @@ t_unit_test	*ut_lstnew(char *title, int (*ut_f)(void))
 	t_unit_test	*list;
 
 	if (!(list = (t_unit_test *)malloc(sizeof(t_unit_test))))
-		exit (ut_puts_error(""));
+		exit(ut_puts_error(""));
 	list->title = ut_strdup(title);
 	if (!list->title)
 		exit(ut_puts_error("malloc failed\n"));
@@ -102,38 +66,12 @@ t_unit_test	*ut_lstnew(char *title, int (*ut_f)(void))
 	return (list);
 }
 
-void	ut_putnbr_fd(int n, int fd)
+int			ut_memcpy(void *dest, const void *src)
 {
-	long	m;
-
-	m = n;
-	if (n < 0)
-	{
-		ut_putchar_fd('-', fd);
-		m = -m;
-	}
-	if (m <= 9)
-	{
-		ut_putchar_fd(m + '0', fd);
-		return ;
-	}
-	ut_putnbr_fd(m / 10, fd);
-	ut_putchar_fd(m % 10 + '0', fd);
-}
-
-void	ut_putchar_fd(char c, int fd)
-{
-	if (fd < 0)
-		return ;
-	write(fd, &c, 1);
-}
-
-int		ut_memcpy(void *dest, const void *src)
-{
-	char *d;
-	const char *s;
-	size_t	ret;
-	size_t	n;
+	char		*d;
+	const char	*s;
+	size_t		ret;
+	size_t		n;
 
 	d = dest;
 	s = src;

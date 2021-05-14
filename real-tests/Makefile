@@ -1,13 +1,17 @@
-NAME = unit_test
+NAME = unit_realtest
 UNITDIR = ../framework/
+
+# add1
 SRCDIR1 = ./ft_strlen/
 SRCDIR2 = ./ft_strcmp/
 UTIL    = ./utils/
 
+# add2
 SRCDIR  = $(SRCDIR1)
 SRCDIR += $(SRCDIR2)
 SRCDIR += $(UTIL)
 
+# add3
 SRCS  = $(shell cd $(SRCDIR1) && echo *.c && cd ..)
 SRCS += $(shell cd $(SRCDIR2) && echo *.c && cd ..)
 SRCS += $(shell cd $(UTIL) && echo *.c && cd ..)
@@ -23,6 +27,7 @@ all : $(OBJDIR) $(NAME)
 $(OBJDIR) :
 	mkdir -p objs
 
+# add4
 $(OBJDIR)%.o : $(SRCDIR1)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 $(OBJDIR)%.o : $(SRCDIR2)%.c
