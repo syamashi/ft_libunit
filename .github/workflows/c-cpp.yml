@@ -16,4 +16,4 @@ jobs:
     - name: configure
       run: echo "Hello world"
     - name: make
-      run: pwd && cd /tests && make && ./test
+      run: pwd && cd ./tests && make && ./test
