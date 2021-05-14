@@ -45,28 +45,27 @@ int		ut_set_result(void *dest, int result)
 	return (ut_memcpy(dest, "UNKNOWN", 7));
 }
 
-void	ut_puts_result(t_unit_test **testlist, int ok, int size)
+void	ut_puts_result(t_unit_test *lst)
 {
-	t_unit_test	*tmp;
 	char	buf[1024];
 	int	len;
 
-	tmp = *testlist;
-	while (tmp)
-	{
-		len = 0;
-		len += ut_memcpy(buf + len, tmp->title, ut_strlen(tmp->title));
-		len += ut_memcpy(buf + len, " : ", 3);
-		len += ut_set_result(buf + len, tmp->result);
-		len += ut_memcpy(buf + len, "\n\0", 2);
-		ut_puts(buf);
-		tmp = tmp->next;
-	}
+	len = 0;
+	len += ut_memcpy(buf + len, lst->title, ut_strlen(lst->title));
+	len += ut_memcpy(buf + len, " : ", 3);
+	len += ut_set_result(buf + len, lst->result);
+	len += ut_memcpy(buf + len, "\n\0", 2);
+	ut_puts(buf);
+}
+
+void	ut_puts_final_result(int ok, int size)
+{
 	ut_putnbr_fd(ok, 1);
 	ut_putstr_fd("/", 1);
 	ut_putnbr_fd(size, 1);
 	ut_putstr_fd("\n", 1);
 }
+
 
 /*
 **
@@ -86,10 +85,11 @@ int		launch_tests(t_unit_test **testlist)
 	{
 		if (!(tmp->result = (ut_run_test(tmp))))
 			ok++;
+		ut_puts_result(tmp);
 		tmp = tmp->next;
 		size++;
 	}
-	ut_puts_result(testlist, ok, size);
+	ut_puts_final_result(ok, size);
 	ut_lstclear(testlist);
 	return ((ok == size) ? 0 : -1);
 }

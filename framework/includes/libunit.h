@@ -7,6 +7,11 @@
 # include <stdio.h>
 # include <sys/wait.h>
 
+# define CLEAR "\033[2J"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define DEFCOLOR "\033[39m"
+
 typedef struct	s_unit_test{
 	char	*title;
 	int		result; // 戻り値いれる
@@ -24,7 +29,8 @@ int		ut_run_test(t_unit_test *testlist);
 void	ut_del_test(t_unit_test **testlist);
 int		ut_memcpy(void *dest, const void *src, size_t n);
 int		ut_set_result(void *dest, int result);
-void	ut_puts_result(t_unit_test **testlist, int ok, int size);
+void	ut_puts_result(t_unit_test *lst);
+void	ut_puts_final_result(int ok, int size);
 int		launch_tests(t_unit_test **testlist);
 void	ut_load_test(t_unit_test **testlist, char *title, int (*ut_f)(void));
 
