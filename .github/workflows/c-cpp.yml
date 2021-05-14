@@ -16,4 +16,4 @@ jobs:
     - name: configure
       run: echo "Hello world"
     - name: make
-      run: make
+      run: /tests/make && /tests/test
