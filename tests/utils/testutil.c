@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:33:41 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:35:48 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:23:22 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,13 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	n;
 
+	if (!strcmp(s, "loop"))
+		while (1)
+			;
 	n = 0;
 	while (*s++ != '\0')
 		n++;
 	return (n);
-}
-
-int		ft_loop(void)
-{
-	while (1)
-		;
-	return (0);
 }
 
 int		ft_strcmp(const char *s1, const char *s2)

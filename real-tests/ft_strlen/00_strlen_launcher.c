@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unit.c                                             :+:      :+:    :+:   */
+/*   00_strlen_launcher.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/14 23:15:57 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:26:03 by syamashi         ###   ########.fr       */
+/*   Created: 2021/05/14 23:38:58 by syamashi          #+#    #+#             */
+/*   Updated: 2021/05/15 01:27:43 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libunit.h"
+#include "../includes/realtest_util.h"
 
-/*
-** set title and function in testlist
-*/
-
-void	ut_load_test(t_unit_test **testlist, char *title, int (*ut_f)(void))
+int	strlen_launcher(void)
 {
-	t_unit_test	*new;
+	t_unit_test *testlist;
 
-	new = ut_lstnew(title, ut_f);
-	ut_lstadd_back(testlist, new);
-	return ;
+	testlist = NULL;
+	ut_puts("STRLEN:\n");
+	ut_load_test(&testlist, "Basic test", &strlen_basic_test);
+	ut_load_test(&testlist, "NULL test", &strlen_null_test);
+	return (launch_tests(&testlist));
 }

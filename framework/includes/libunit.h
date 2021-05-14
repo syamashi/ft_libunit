@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:16:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:22:42 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:28:58 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct	s_unit_test{
 ** units
 */
 
-int				ut_child(t_unit_test *lst);
 int				ut_run_test(t_unit_test *lst);
 int				ut_memresult(void *dest, int result);
 void			ut_puts_result(t_unit_test *lst);

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:33:00 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:45:02 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:31:21 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	strlen_tle_test(void)
 {
-	if (ft_loop())
+	if (ft_strlen("loop") == strlen("loop"))
 		return (0);
 	else
 		return (-1);

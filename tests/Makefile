@@ -48,4 +48,6 @@ re : fclean all
 test : all
 	./$(NAME)||:
 
-.PHONY: all fclean clean re test
+bonus : all
+
+.PHONY: all fclean clean re test bonus

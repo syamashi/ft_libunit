@@ -6,12 +6,11 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:39:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:43:57 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:08:53 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/testutil.h"
-#include "../../framework/includes/libunit.h"
 
 int	strcmp_launcher(void)
 {

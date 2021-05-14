@@ -6,12 +6,11 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:38:58 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:44:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:31:24 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/testutil.h"
-#include "../../framework/includes/libunit.h"
 
 int	strlen_launcher(void)
 {

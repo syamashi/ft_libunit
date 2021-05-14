@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unit2.c                                            :+:      :+:    :+:   */
+/*   libunit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:19:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:25:28 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 01:52:40 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libunit.h"
-
-int		ut_child(t_unit_test *testlist)
-{
-	alarm(3);
-	return (testlist->ut_f());
-}
 
 int		ut_run_test(t_unit_test *testlist)
 {
@@ -25,7 +19,10 @@ int		ut_run_test(t_unit_test *testlist)
 	if ((pid = fork()) < 0)
 		return (42);
 	if (pid == 0)
-		exit(ut_child(testlist));
+	{
+		alarm(3);
+		exit(testlist->ut_f());
+	}
 	wait(&pid);
 	if (WIFEXITED(pid))
 		return (-WEXITSTATUS(pid));
@@ -38,6 +35,8 @@ int		ut_memresult(void *dest, int result)
 {
 	if (result == 0)
 		return (ut_memcpy(dest, "OK"));
+	if (result == -255)
+		return (ut_memcpy(dest, "KO"));
 	if (result == 6)
 		return (ut_memcpy(dest, "ABRT"));
 	if (result == 10)
@@ -77,7 +76,16 @@ int		launch_tests(t_unit_test **testlist)
 		tmp = tmp->next;
 		size++;
 	}
-	printf("%d/%d tests checked\n", ok, size);
+	printf("%d/%d tests checked\n\n", ok, size);
 	ut_lstclear(testlist);
 	return ((ok == size) ? 0 : -1);
+}
+
+void	ut_load_test(t_unit_test **testlist, char *title, int (*ut_f)(void))
+{
+	t_unit_test	*new;
+
+	new = ut_lstnew(title, ut_f);
+	ut_lstadd_back(testlist, new);
+	return ;
 }
