@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:32:48 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:03:17 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:26:44 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	strtrim_long_test(void)
 {
-	char s[1000100];
-	char set[1000100];
+	char	s[1000100];
+	char	set[1000100];
 
 	memset(s, 'a', 1000000);
 	memset(set, 'a', 1000000);

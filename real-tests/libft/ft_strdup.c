@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syamashi <syamashi@student.42.tokyo>       +#+  +:+       +#+        */
+/*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 21:18:36 by syamashi          #+#    #+#             */
-/*   Updated: 2021/01/25 01:22:40 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:27:53 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strdup(const char *str)
 	if (!str)
 		return (NULL);
 	ssz = ft_strlen(str);
-	if (!(copy = malloc(sizeof(char) * (ssz + 1))))
+	copy = malloc(sizeof(char) * (ssz + 1));
+	if (!copy)
 		return (NULL);
 	n = 0;
 	while (*str)

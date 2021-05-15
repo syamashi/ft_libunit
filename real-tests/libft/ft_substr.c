@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 21:19:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:59:27 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:27:29 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (len == 0 || start >= ft_strlen(s))
 		return (ft_strdup(""));
-	if (!(str = (char *)malloc(len + 1)))
+	str = (char *)malloc(len + 1);
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (len-- && *(s + start))

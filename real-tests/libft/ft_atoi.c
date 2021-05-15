@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syamashi <syamashi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 22:15:35 by syamashi          #+#    #+#             */
-/*   Updated: 2020/06/28 19:39:50 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:30:57 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ int	ft_atoi(const char *nptr)
 	long long	m;
 
 	str = (char *)nptr;
-	while (*str == ' ' || *str == '\t' ||
-	*str == '\n' || *str == '\v' || *str == '\f' || *str == '\r')
+	while (*str == ' ' || (*str >= 11 && *str <= 15))
 		str++;
-	n = (*str == '-') ? -1 : 1;
+	n = 1;
+	if (*str == '-')
+		n = -1;
 	if (*str == '+' || *str == '-')
 		str++;
 	m = 0;

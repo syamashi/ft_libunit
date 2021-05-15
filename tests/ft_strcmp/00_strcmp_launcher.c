@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:39:14 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 11:02:53 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:24:40 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	strcmp_launcher(void)
 {
-	t_unit_test *testlist;
+	t_unit_test	*testlist;
 
 	testlist = NULL;
 	ut_puts("STRCMP:\n");

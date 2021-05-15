@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:19:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 11:19:52 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:22:21 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ int	launch_tests(t_unit_test **testlist)
 	}
 	printf("%d/%d tests checked\n\n", ok, size);
 	ut_lstclear(testlist);
-	return ((ok == size) ? 0 : -1);
+	if (ok == size)
+		return (0);
+	return (-1);
 }
 
 void	ut_load_test(t_unit_test **testlist, char *title, int (*ut_f)(void))

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:16:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 11:15:19 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:21:38 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define DEFCOLOR "\033[39m"
 # define CEND "\033[0m"
 
-typedef struct	s_unit_test{
+typedef struct s_unit_test{
 	char				*title;
 	int					result;
 	char				buf[1024];

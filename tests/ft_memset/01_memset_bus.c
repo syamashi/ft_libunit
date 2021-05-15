@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:32:48 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 09:09:22 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:25:24 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	memset_bus_test(void)
 {
-	char *s;
-	char *v;
+	char	*s;
+	char	*v;
 
 	s = "abcd";
 	v = "abcd";
