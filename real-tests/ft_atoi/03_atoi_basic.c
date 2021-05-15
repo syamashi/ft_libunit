@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:32:48 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:10:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:36:11 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	atoi_basic3_test(void)
 {
-	if (ft_atoi("123456789") == atoi("123456789"))
+	if (ft_atoi("12345678") == atoi("12345678"))
 		return (0);
 	else
 		return (-1);
