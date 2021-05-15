@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:38:58 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:09:33 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:32:08 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	memmove_launcher(void)
 {
-	t_unit_test *testlist;
+	t_unit_test	*testlist;
 
 	testlist = NULL;
 	ut_puts("memmove:\n");

@@ -6,15 +6,15 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:33:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 11:09:35 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:32:31 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/realtest_util.h"
 
-int		main(void)
+int	main(void)
 {
-	int err;
+	int	err;
 
 	ut_puts("*********************************\n");
 	ut_puts("     ** 42 - Unit Tests ****\n");

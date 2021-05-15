@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 10:09:52 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:09:54 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:31:56 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	memmove_basic2_test(void)
 {
-	char *s;
+	char	*s;
 
 	s = strdup("abcdefg");
 	if (!memcmp(ft_memmove(s + 2, s, 5), memmove(s + 2, s, 5), 7))

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:38:58 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:42:55 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:31:37 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	atoi_launcher(void)
 {
-	t_unit_test *testlist;
+	t_unit_test	*testlist;
 
 	testlist = NULL;
 	ut_puts("atoi:\n");
