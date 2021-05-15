@@ -6,17 +6,18 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:19:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:50:44 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:19:52 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libunit.h"
 
-int		ut_run_test(t_unit_test *testlist)
+int	ut_run_test(t_unit_test *testlist)
 {
 	pid_t	pid;
 
-	if ((pid = fork()) < 0)
+	pid = fork();
+	if (pid < 0)
 		return (42);
 	if (pid == 0)
 	{
@@ -31,7 +32,7 @@ int		ut_run_test(t_unit_test *testlist)
 	return (142);
 }
 
-int		ut_memresult(void *dest, int result)
+int	ut_memresult(void *dest, int result)
 {
 	if (result == 0)
 		return (ut_memcpy(dest, "OK"));
@@ -59,7 +60,7 @@ void	ut_puts_result(t_unit_test *lst)
 		printf("   > %s : [%s%s%s]\n", lst->title, GREEN, lst->buf, CEND);
 }
 
-int		launch_tests(t_unit_test **testlist)
+int	launch_tests(t_unit_test **testlist)
 {
 	int			ok;
 	int			size;
@@ -72,7 +73,8 @@ int		launch_tests(t_unit_test **testlist)
 	size = 0;
 	while (tmp)
 	{
-		if (!(tmp->result = (ut_run_test(tmp))))
+		tmp->result = (ut_run_test(tmp));
+		if (!tmp->result)
 			ok++;
 		ut_puts_result(tmp);
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:23:07 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:28:27 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:20:38 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ut_puts(char *s)
 	printf("%s", s);
 }
 
-int		ut_puts_error(char *s)
+int	ut_puts_error(char *s)
 {
 	printf("%s", s);
 	return (-1);
@@ -57,7 +57,8 @@ char	*ut_strdup(const char *str)
 	if (!str)
 		return (NULL);
 	ssz = ut_strlen(str);
-	if (!(copy = malloc(sizeof(char) * (ssz + 1))))
+	copy = malloc(sizeof(char) * (ssz + 1));
+	if (!copy)
 		return (NULL);
 	n = 0;
 	while (*str)
