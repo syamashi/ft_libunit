@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:33:17 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:59:52 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 08:41:13 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void)
 	ut_puts("*********************************\n");
 	err = 0;
 	err |= strlen_launcher();
+	err |= memset_launcher();
 	err |= strcmp_launcher();
 	if (err == -1)
 		ut_puts("almost perfect!\n");

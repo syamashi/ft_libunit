@@ -5,20 +5,23 @@ LIBFTDIR = ./libft/
 # add1
 SRCDIR0 = ./main/
 SRCDIR1 = ./ft_strlen/
-SRCDIR2 = ./ft_memset/
-SRCDIR3 = ./ft_atoi/
+SRCDIR2 = ./ft_atoi/
+SRCDIR3 = ./ft_memmove/
+SRCDIR4 = ./ft_strtrim/
 
 # add2
 SRCDIR  = $(SRCDIR0)
 SRCDIR += $(SRCDIR1)
 SRCDIR += $(SRCDIR2)
 SRCDIR += $(SRCDIR3)
+SRCDIR += $(SRCDIR4)
 
 # add3
 SRCS  = $(shell cd $(SRCDIR0) && echo *.c && cd ..)
 SRCS += $(shell cd $(SRCDIR1) && echo *.c && cd ..)
 SRCS += $(shell cd $(SRCDIR2) && echo *.c && cd ..)
 SRCS += $(shell cd $(SRCDIR3) && echo *.c && cd ..)
+SRCS += $(shell cd $(SRCDIR4) && echo *.c && cd ..)
 
 OBJDIR = ./objs/
 OBJS = $(SRCS:%.c=$(OBJDIR)%.o)
@@ -39,6 +42,8 @@ $(OBJDIR)%.o : $(SRCDIR1)%.c
 $(OBJDIR)%.o : $(SRCDIR2)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 $(OBJDIR)%.o : $(SRCDIR3)%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+$(OBJDIR)%.o : $(SRCDIR4)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 # -L<libdir> -l<lib-unit cut lib>

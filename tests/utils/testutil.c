@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:33:41 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 01:23:22 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 08:43:18 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,14 @@ int		ft_strcmp(const char *s1, const char *s2)
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 	return (s1[i] - s2[i]);
+}
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*str;
+
+	str = s;
+	while (n-- > 0)
+		*str++ = c;
+	return (s);
 }
