@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:37:10 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:33:52 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:35:08 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		strlen_basic_test(void);
 int		strlen_null_test(void);
 int		strlen_tle_test(void);
 int		strlen_bus_test(void);
-int		strlen_segf_test(void);
 
 int		memset_launcher(void);
 int		memset_bus_test(void);

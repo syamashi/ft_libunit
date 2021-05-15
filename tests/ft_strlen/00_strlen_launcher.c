@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:38:58 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 11:23:24 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:35:01 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int	strlen_launcher(void)
 	ut_load_test(&testlist, "NULL test", &strlen_null_test);
 	ut_load_test(&testlist, "TLE test", &strlen_tle_test);
 	ut_load_test(&testlist, "Bus test", &strlen_bus_test);
-	ut_load_test(&testlist, "Segf test", &strlen_segf_test);
 	return (launch_tests(&testlist));
 }
