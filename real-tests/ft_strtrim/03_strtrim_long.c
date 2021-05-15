@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:32:48 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 09:53:12 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 10:03:17 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	strtrim_long_test(void)
 	memset(set, 'a', 1000000);
 	s[1000000] = 0;
 	set[1000000] = 0;
-	if (!strcmp(ft_strtrim(s, set), strtrim(s, set)))
+	if (!strcmp(ft_strtrim(s, set), ""))
 		return (0);
 	else
 		return (-1);

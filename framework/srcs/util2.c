@@ -6,11 +6,24 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:23:07 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 01:31:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 10:28:27 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libunit.h"
+
+void	ut_puts_ending(void)
+{
+	printf("       n\n");
+	printf("      ( ^)        n_ _\n");
+	printf("      /,./       i .,,E)\n");
+	printf("    ./  /'      /  /\n");
+	printf("  ./  / _,_　  /  /'\n");
+	printf("  /  /　,_/`) / /=\n");
+	printf(" (           / /  good job!\n");
+	printf("  \\           |\n");
+	printf("   \\           \\\n");
+}
 
 void	ut_puts(char *s)
 {

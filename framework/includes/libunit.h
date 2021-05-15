@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:16:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 09:09:00 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:07:36 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define CLEAR "\033[2J"
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
 # define DEFCOLOR "\033[39m"
 # define CEND "\033[0m"
 
@@ -57,5 +58,6 @@ t_unit_test		*ut_lstlast(t_unit_test *lst);
 void			ut_lstadd_back(t_unit_test **lst, t_unit_test *new);
 t_unit_test		*ut_lstnew(char *title, int (*ut_f)(void));
 int				ut_memcpy(void *dest, const void *src);
+void			ut_puts_ending(void);
 
 #endif

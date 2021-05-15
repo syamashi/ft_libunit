@@ -2,14 +2,17 @@ NAME = unit_test
 UNITDIR = ../framework/
 SRCDIR1 = ./ft_strlen/
 SRCDIR2 = ./ft_strcmp/
+SRCDIR3 = ./ft_memset/
 UTIL    = ./utils/
 
 SRCDIR  = $(SRCDIR1)
 SRCDIR += $(SRCDIR2)
+SRCDIR += $(SRCDIR3)
 SRCDIR += $(UTIL)
 
 SRCS  = $(shell cd $(SRCDIR1) && echo *.c && cd ..)
 SRCS += $(shell cd $(SRCDIR2) && echo *.c && cd ..)
+SRCS += $(shell cd $(SRCDIR3) && echo *.c && cd ..)
 SRCS += $(shell cd $(UTIL) && echo *.c && cd ..)
 
 OBJDIR = ./objs/
@@ -26,6 +29,8 @@ $(OBJDIR) :
 $(OBJDIR)%.o : $(SRCDIR1)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 $(OBJDIR)%.o : $(SRCDIR2)%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+$(OBJDIR)%.o : $(SRCDIR3)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 $(OBJDIR)%.o : $(UTIL)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<

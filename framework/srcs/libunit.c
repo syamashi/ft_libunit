@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:19:04 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 01:52:40 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 10:50:44 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ int		launch_tests(t_unit_test **testlist)
 	int			size;
 	t_unit_test	*tmp;
 
-	tmp = *testlist;
+	tmp = NULL;
+	if (testlist)
+		tmp = *testlist;
 	ok = 0;
 	size = 0;
 	while (tmp)
@@ -85,6 +87,8 @@ void	ut_load_test(t_unit_test **testlist, char *title, int (*ut_f)(void))
 {
 	t_unit_test	*new;
 
+	if (!testlist || !title || !ut_f)
+		return ;
 	new = ut_lstnew(title, ut_f);
 	ut_lstadd_back(testlist, new);
 	return ;

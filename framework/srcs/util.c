@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:15:51 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/14 23:26:45 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 10:46:37 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void		ut_lstclear(t_unit_test **lst)
 {
 	t_unit_test *tmp;
 
+	if (!lst)
+		return ;
 	while (*lst)
 	{
 		tmp = (*lst)->next;
@@ -56,7 +58,7 @@ t_unit_test	*ut_lstnew(char *title, int (*ut_f)(void))
 	t_unit_test	*list;
 
 	if (!(list = (t_unit_test *)malloc(sizeof(t_unit_test))))
-		exit(ut_puts_error(""));
+		exit(ut_puts_error("malloc failed\n"));
 	list->title = ut_strdup(title);
 	if (!list->title)
 		exit(ut_puts_error("malloc failed\n"));

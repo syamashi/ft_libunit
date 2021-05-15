@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:37:10 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 10:00:39 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 10:29:36 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define REALTEST_UTIL_H
 
 # include <string.h>
-# include <publib.h>
 # include "../../framework/includes/libunit.h"
 # include "../libft/libft.h"
 

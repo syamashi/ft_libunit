@@ -6,7 +6,7 @@
 /*   By: syamashi <syamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 23:38:58 by syamashi          #+#    #+#             */
-/*   Updated: 2021/05/15 08:40:30 by syamashi         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:03:24 by syamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	strlen_launcher(void)
 
 	testlist = NULL;
 	ut_puts("STRLEN:\n");
+	ut_load_test(NULL, NULL, NULL);
 	ut_load_test(&testlist, "Basic test", &strlen_basic_test);
 	ut_load_test(&testlist, "NULL test", &strlen_null_test);
 	ut_load_test(&testlist, "TLE test", &strlen_tle_test);
